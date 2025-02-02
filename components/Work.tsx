@@ -1,4 +1,13 @@
 import { GiPolarStar } from "react-icons/gi";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Separator } from "@/components/ui/separator"
+import { RiExternalLinkLine } from "react-icons/ri";
+import { PiShootingStarFill } from "react-icons/pi";
 
 export default function Work() {
 
@@ -20,7 +29,7 @@ export default function Work() {
                             </div>
                         </div>
 
-                        <div className="">
+                        <div className="lg:w-2/3">
                             <div className="ps-2 my-2 first:mt-0">
                                 <h3 className="text-base font-medium uppercase text-yellow-500">
                                     December 2024 - Present
@@ -39,7 +48,7 @@ export default function Work() {
                                     <h3 className="flex gap-x-1.5 font-semibold text-white text-xl lg:text-2xl">
                                         ClickNext co.,ltd.
                                     </h3>
-                                    <p className="mt-5 text-base  text-white">
+                                    <p className="mt-5 lg:text-base  text-white">
                                         Interned as a Full Stack Developer, responsible for developing web applications on both the Frontend and Backend.
                                     </p>
 
@@ -72,9 +81,68 @@ export default function Work() {
                                     <h3 className="flex gap-x-1.5 font-semibold text-white text-xl lg:text-2xl">
                                         Thewin dev tech co.,ltd.
                                     </h3>
-                                    <p className="mt-5 text-base  text-white">
+                                    <p className="mt-5 lg:text-base  text-white">
                                         A Frontend Developer primarily focused on developing web applications, with some experience in API Backend development for certain projects.
                                     </p>
+                                    <Accordion type="single" collapsible >
+                                        <AccordionItem value="item-1" className="bg-[#0c0c0e] px-3 my-3 rounded-xl">
+                                            <AccordionTrigger className="text-yellow-500 uppercase lg:text-base">
+                                                <p className="flex items-center gap-2"> <span className="size-2 rounded-full bg-yellow-500"></span> Project</p>
+                                            </AccordionTrigger>
+                                            <AccordionContent className="my-3 w-[330px] lg:w-[850px]">
+                                                <div className="space-y-5">
+                                                    <h4 className="text-base font-medium leading-none flex flex-nowrap gap-3"><PiShootingStarFill className="text-yellow-500" />Clinic Management Web Application Project  </h4>
+                                                    <p className="text- text-gray-400 px-5 ">
+                                                        Developed backend using Express and Node.js, designing and implementing APIs based on design specifications and user requirements. Additionally, developed the frontend and integrated APIs to create dashboards and reporting pages for efficient management of employee and clinic data, including features for activity tracking and stock management.
+                                                    </p>
+                                                </div>
+                                                <Separator className="bg-[#2c2c34] my-3" />
+                                                <div className="flex h-5 items-center space-x-4 text-xs">
+                                                    <div>Next js</div>
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div> July - August 2024</div>
+                                                </div>
+                                            </AccordionContent>
+
+                                            <AccordionContent className="my-3 w-[330px] lg:w-[850px] ">
+                                                <div className="space-y-5">
+                                                    <h4 className="text-base font-medium leading-none flex flex-nowrap gap-3"><PiShootingStarFill className="text-yellow-500" />Application for management monitoring&reporting fiber
+                                                        optic system</h4>
+                                                    <p className="text- text-gray-400 px-5 ">
+                                                        Worked as a DevOps with Bitbucket and Git server on Ubuntu, and developed the frontend of a web application for administration and technicians
+                                                    </p>
+                                                </div>
+                                                <Separator className="bg-[#2c2c34] my-3" />
+                                                <div className="flex h-5 items-center space-x-4 text-xs text-nowrap">
+                                                    <div>Angular js, .Net </div>
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div> May 2023-May 2024</div>
+
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div> Contract with Software house companies(The details are proprietary.)</div>
+                                                </div>
+                                            </AccordionContent>
+
+                                            <AccordionContent className="my-3 w-[330px] lg:w-[850px]">
+                                                <div className="space-y-5">
+                                                    <h4 className="text-base font-medium leading-none flex flex-nowrap gap-3"><PiShootingStarFill className="text-yellow-500" />Application for management monitoring&reporting fiber
+                                                        optic system</h4>
+                                                    <p className="text- text-gray-400 px-5 ">
+                                                        Worked as a DevOps with Bitbucket and Git server on Ubuntu, and developed the frontend of a web application for administration and technicians
+                                                    </p>
+                                                </div>
+                                                <Separator className="bg-[#2c2c34] my-3" />
+                                                <div className="flex h-5 items-center space-x-4 text-xs">
+                                                    <div>Next js</div>
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div> October 2022-August 2023</div>
+
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div> Contract with Software house companies(The details are proprietary.)</div>
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    </Accordion>
 
                                 </div>
                             </div>
@@ -97,10 +165,46 @@ export default function Work() {
                                     <h3 className="flex gap-x-1.5 font-semibold text-white text-xl lg:text-2xl">
                                         Creating Digital Platforms and Virtual Environments at Mahasarakham University
                                     </h3>
-                                    <p className="mt-5 text-base  text-white">
+                                    <p className="mt-5 lg:text-base  text-white">
                                         University Projects: Developed Frontend for the EDV Metaverse for Sale Digital Land Web Application and EDV NFT Marketplace Project using Next.js
                                     </p>
+                                    <Accordion type="single" collapsible >
+                                        <AccordionItem value="item-1" className="bg-[#0c0c0e] px-3 my-3 rounded-xl">
+                                            <AccordionTrigger className="text-yellow-500 uppercase lg:text-base">
+                                                <p className="flex items-center gap-2"> <span className="size-2 rounded-full bg-yellow-500"></span> Project</p>
+                                            </AccordionTrigger>
+                                            <AccordionContent className="my-3 w-[330px] lg:w-[850px]">
+                                                <div className="space-y-5">
+                                                    <h4 className="text-base font-medium leading-none flex flex-nowrap gap-3"><PiShootingStarFill className="text-yellow-500" />EDV Metaverse for sale digital land web application  </h4>
+                                                    <p className="text- text-gray-400 px-5 ">
+                                                        Developed the frontend of websites, integrated APIs, and designed website interfaces.
+                                                    </p>
+                                                </div>
+                                                <Separator className="bg-[#2c2c34] my-3" />
 
+                                                <div className="flex h-5  items-center space-x-4 text-xs">
+                                                    <div>Next js</div>
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div><a className="flex items-center flex-nowrap gap-3  text-yellow-500 hover:underline" href="https://edvmetaverse.io">edvmetaverse.io <RiExternalLinkLine /></a></div>
+                                                </div>
+                                            </AccordionContent>
+                                            <AccordionContent className="my-3">
+                                                <div className="space-y-5">
+                                                    <h4 className="text-base font-medium leading-none flex flex-nowrap gap-3"><PiShootingStarFill className="text-yellow-500" />EDV NFT Marketplace Project (Next.js)</h4>
+                                                    <p className="text- text-gray-400 px-5 ">
+                                                        Developed the frontend of websites, integrated APIs, and designed website interfaces.
+                                                    </p>
+                                                </div>
+                                                <Separator className="bg-[#2c2c34] my-3" />
+                                                <div className="flex h-5  items-center space-x-4 text-xs">
+                                                    <div>Next js</div>
+                                                    <Separator orientation="vertical" className="bg-[#2c2c34]" />
+                                                    <div><a className="flex items-center flex-nowrap gap-3  text-yellow-500 hover:underline" href="https://nft.edvmetaverse.io">nft.edvmetaverse.io <RiExternalLinkLine /></a></div>
+                                                </div>
+                                            </AccordionContent>
+
+                                        </AccordionItem>
+                                    </Accordion>
                                 </div>
 
                             </div>
