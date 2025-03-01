@@ -28,7 +28,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="MyWebSite" />
         <meta name="description" content="Portfolio" />
-
+        <meta name="robots" content="noindex, nofollow" />
         {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:url" content="https://www.jakkapet.com" />
         <meta property="og:type" content="website" />
