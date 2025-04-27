@@ -1,5 +1,4 @@
 import { Spotlight } from "@/components/ui/spotlight-new";
-import Footer from "@C/About";
 import About from "@C/About";
 import Home from "@C/Home";
 import Skill from "@C/Skill";

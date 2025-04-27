@@ -69,7 +69,7 @@ export default function Work() {
                                                     <Separator orientation="vertical" className="bg-[#2c2c34]" />
                                                     <div>Vuetify</div>
                                                     <Separator orientation="vertical" className="bg-[#2c2c34]" />
-                                                    <div> December 2024 - Present</div>
+                                                    <div> December 2024 - Mars 2025</div>
                                                 </div>
                                             </AccordionContent>
                                         </AccordionItem>
