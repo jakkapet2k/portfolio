@@ -57,9 +57,18 @@ export default function About() {
                             <a href="/pdf/IC3ComputingFundamentalsGlobalStandard5.pdf" className="flex flex-nowrap gap-2" target="_blank" rel="noopener noreferrer">
                                 IC3 Computing Fundamentals - Global Standard 5 <RiExternalLinkLine />
                             </a>
-                            <span className="text-yellow-500">2023</span>  </li>
-
-
+                            <span className="text-yellow-500">2023</span>
+                        </li>
+                        <li className="text-body-color dark:text-dark-6 flex lg:text-xl items-center gap-x-5">
+                            <span
+                                className="bg-primary mr-2 mt-2 flex h-2 w-full max-w-[8px] items-center bg-yellow-500 justify-center rounded-full text-base"
+                            >
+                            </span>
+                            <a href="https://samsungsic-thailand.org/certificate-tutor/?cert_hash=2ecf853836c1435d" className="flex flex-nowrap gap-2" target="_blank" rel="noopener noreferrer">
+                                Introduction to Programming with Python<RiExternalLinkLine />
+                            </a>
+                            <span className="text-yellow-500">2025</span>
+                        </li>
                     </ul>
 
                 </div>
