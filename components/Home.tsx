@@ -21,11 +21,11 @@ export default function Home() {
                     </CardSpotlight>
                 </div>
                 <div className="text-left text-xl md:text-2xl lg:text-5xl  font-normal text-white md:mt-5">
-                    <p className="relative flex justify-start text-xl md: gap-x-5 items-center text-yellow-500 mb-5 ">
+                    {/* <p className="relative flex justify-start text-xl md: gap-x-5 items-center text-yellow-500 mb-5 ">
                         <MdWavingHand className="absolute inline-flex animate-ping" />
                         <MdWavingHand className="relative inline-flex" />
                         Hey! It's me Jakkapet
-                    </p>
+                    </p> */}
                     <p className="w-full text-xl md:text-2xl lg:text-7xl font-bold">
                         Failure is a valuable lesson <br className="hidden lg:block" />and <span className="text-yellow-500">experience </span>
                     </p>
