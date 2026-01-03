@@ -17,7 +17,7 @@ export const config = {
     ],
 };
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const url = request.nextUrl;
     const hostname = request.headers.get("host") || "";
 
@@ -50,15 +50,9 @@ export function middleware(request: NextRequest) {
             currentHost === "www.portfolio.jakkapet.com"
         ) {
             site = "portfolio";
-        } else if (
-            currentHost === "jakkapet.com" ||
-            currentHost === "www.jakkapet.com"
-        ) {
-            site = "jakkapet";
         } else {
-            // Subdomain อื่นที่ไม่รู้จัก - ไปหน้า 404
-            url.pathname = "/404";
-            return NextResponse.rewrite(url);
+            // Default to jakkapet for any other domain
+            site = "jakkapet";
         }
     }
 
