@@ -40,7 +40,7 @@ export default function ExperiencePage() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12">
         {/* Back button */}
         <Link
-          href="/portfolio"
+          href="/"
           className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors mb-8 group"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
