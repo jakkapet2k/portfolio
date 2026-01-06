@@ -5,7 +5,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { Highlighter } from "@/components/ui/highlighter";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import gsap from "gsap";
-import { BriefcaseIcon, CodeIcon, GithubIcon, GraduationCapIcon, MailIcon } from "lucide-react";
+import { BriefcaseIcon, CodeIcon, FileTextIcon, GithubIcon, GraduationCapIcon, MailIcon, User2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
@@ -153,18 +153,28 @@ export default function PortfolioHomePage() {
       title: "Projects",
       desc: "Web development projects",
       href: "/projects",
+      isActive: false,
+    },
+    {
+      Icon: User2,
+      title: "About me",
+      desc: "Personal background & story",
+      href: "/about",
+      isActive: true,
     },
     {
       Icon: BriefcaseIcon,
       title: "Experience",
       desc: "Professional journey",
       href: "/experience",
+      isActive: true,
     },
     {
       Icon: GraduationCapIcon,
       title: "Skills",
       desc: "Technologies & tools",
       href: "/skills",
+      isActive: false,
     },
     {
       Icon: GithubIcon,
@@ -172,12 +182,21 @@ export default function PortfolioHomePage() {
       desc: "Open source contributions",
       href: "https://github.com/jakkapet2k",
       external: true,
+      isActive: true,
     },
     {
       Icon: MailIcon,
       title: "Contact",
       desc: "Get in touch",
       href: "/contact",
+      isActive: true,
+    },
+    {
+      Icon: FileTextIcon,
+      title: "Resume",
+      desc: "View my resume",
+      href: "/resume",
+      isActive: true,
     },
   ];
 
@@ -240,9 +259,8 @@ export default function PortfolioHomePage() {
               </BlurFade>
               <BlurFade delay={0.5} inView>
                 <p className="text-center mt-4 text-gray-500 text-base tracking-wider uppercase">
-                  Web Developer with 2 years of experience. Strong Fullstack skills, excellent team collaboration, and a
-                  fast learner. Capable of working independently or in teams, always seeking new challenges and growth
-                  opportunities.
+                  Failure is a valuable lesson and{" "}
+                  <AuroraText colors={["#FF6D00", "#FF8F00", "#FFA726", "#FFB74D"]}> experience</AuroraText>
                 </p>
               </BlurFade>
             </div>
@@ -259,32 +277,70 @@ export default function PortfolioHomePage() {
 
         {/* Cards Section */}
         <div className="border-t border-dashed border-[#ffffff17] py-12">
-          <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {cards.map((card, index) => {
-              const CardWrapper = card.external ? "a" : Link;
-              const cardProps = card.external
-                ? { href: card.href, target: "_blank", rel: "noopener noreferrer" }
-                : { href: card.href };
+              const isActive = card.isActive !== false;
 
-              return (
-                <CardWrapper
-                  key={index}
-                  {...cardProps}
-                  className="group relative p-6 bg-gray-900/60 border border-dashed border-orange-500/20 hover:border-orange-500/50 transition-all duration-300 cursor-pointer hover:bg-gray-900/80"
-                >
+              // Last card spans 2 columns on md and larger
+              const isLastCard = index === cards.length - 1;
+              const spanClass = isLastCard ? "md:col-span-2" : "";
+              const disabledClass = !isActive
+                ? "opacity-40  hover:border-red-500/50 hover:bg-red-900/10"
+                : "cursor-pointer hover:border-orange-500/50 hover:bg-gray-900/80";
+
+              const cardClassName = `group relative p-6 bg-gray-900/60 border border-dashed border-orange-500/20 transition-all duration-300 ${spanClass} ${disabledClass}`;
+
+              const cornerClass = !isActive ? "group-hover:border-red-500/60" : "group-hover:border-orange-500/60";
+
+              const cardContent = (
+                <>
                   {/* Card corner decorations */}
-                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-orange-500/30 group-hover:border-orange-500/60 transition-colors" />
-                  <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-orange-500/30 group-hover:border-orange-500/60 transition-colors" />
-                  <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-orange-500/30 group-hover:border-orange-500/60 transition-colors" />
-                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-orange-500/30 group-hover:border-orange-500/60 transition-colors" />
+                  <div
+                    className={`absolute top-0 left-0 w-3 h-3 border-t border-l border-orange-500/30 ${cornerClass} transition-colors`}
+                  />
+                  <div
+                    className={`absolute top-0 right-0 w-3 h-3 border-t border-r border-orange-500/30 ${cornerClass} transition-colors`}
+                  />
+                  <div
+                    className={`absolute bottom-0 left-0 w-3 h-3 border-b border-l border-orange-500/30 ${cornerClass} transition-colors`}
+                  />
+                  <div
+                    className={`absolute bottom-0 right-0 w-3 h-3 border-b border-r border-orange-500/30 ${cornerClass} transition-colors`}
+                  />
 
                   <card.Icon className="w-8 h-8 text-orange-500 mb-4 group-hover:scale-110 transition-transform" />
                   <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-2">{card.title}</h3>
                   <p className="text-gray-500 text-xs uppercase tracking-wide">{card.desc}</p>
 
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </CardWrapper>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${
+                      !isActive ? "from-red-500/5" : "from-orange-500/5"
+                    } via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity`}
+                  />
+                </>
+              );
+
+              if (!isActive) {
+                return (
+                  <div key={index} className={cardClassName}>
+                    {cardContent}
+                  </div>
+                );
+              }
+
+              if (card.external) {
+                return (
+                  <a key={index} href={card.href} target="_blank" rel="noopener noreferrer" className={cardClassName}>
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              return (
+                <Link key={index} href={card.href} className={cardClassName}>
+                  {cardContent}
+                </Link>
               );
             })}
           </div>
