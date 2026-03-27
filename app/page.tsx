@@ -1,3 +1,4 @@
+import AboutSection from "@/components/portfolio/AboutSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import EducationSection from "@/components/portfolio/EducationSection";
 import ExperienceSection from "@/components/portfolio/ExperienceSection";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <AboutSection />
       <ProjectsSection />
       <ExperienceSection />
       <SkillsSection />
