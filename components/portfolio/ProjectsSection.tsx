@@ -1,51 +1,15 @@
 "use client";
 
+import { useLocale } from "@/components/providers/LocaleProvider";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    title: "Banking Merchant Back Office",
-    description:
-      "A Back Office web system focused on merchant management with Front-end and Back-end API implementation, processing over 100,000 transactions daily with optimized data export for large-scale datasets.",
-    tags: ["NuxtJS", "AdonisJS", "TypeScript", "PostgreSQL"],
-  },
-  {
-    title: "Smart Trading Back Office",
-    description:
-      "Back Office system for a stock trading application to manage user permissions, trading accounts, and stock market data uploads with mobile APIs for trading data.",
-    tags: ["NuxtJS", "NestJS", "TypeScript", "MongoDB"],
-  },
-  {
-    title: "Government Website",
-    description:
-      "A public-facing government website with event map, area-based notification system, and back-office APIs for managing event-related information.",
-    tags: ["Next.js", "Node.js", "REST APIs"],
-  },
-  {
-    title: "Clinic Management App",
-    description:
-      "A full-featured clinic management web application with POS system for product sales and back-office for managing inventory, events, and sales reports across multiple branches.",
-    tags: ["AngularJS", "Node.js", "MySQL", "REST APIs"],
-  },
-  {
-    title: "Fiber Optic Monitoring System",
-    description:
-      "Web system for fiber optic management and monitoring/reporting, integrating data from hardware devices. Handled DevOps with Bitbucket and Git servers on Ubuntu.",
-    tags: ["AngularJS", "DevOps", "Ubuntu", "Git"],
-  },
-  {
-    title: "EDV Metaverse & NFT Marketplace",
-    description:
-      "Designed UI/UX and developed the frontend for a digital land sales platform and NFT marketplace with interactive interfaces and backend API integration.",
-    tags: ["React", "TypeScript", "Web3", "REST APIs"],
-  },
-];
-
 const ProjectsSection = function ProjectsSection() {
+  const { messages } = useLocale();
+  const projects = messages.projects.items;
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -62,14 +26,14 @@ const ProjectsSection = function ProjectsSection() {
         },
       );
       gsap.fromTo(
-        ".project-card",
-        { opacity: 0, y: 60 },
+        ".project-row",
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          scrollTrigger: { trigger: ".project-card", start: "top 90%" },
+          duration: 0.6,
+          stagger: 0.08,
+          scrollTrigger: { trigger: ".project-row", start: "top 90%" },
         },
       );
     }, sectionRef);
@@ -78,76 +42,70 @@ const ProjectsSection = function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="border-t border-zinc-200 bg-zinc-50/50 px-6 py-32 sm:px-10">
+    <section ref={sectionRef} id="projects" className="border-t border-zinc-200 bg-zinc-50/50 px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32">
       <div className="mx-auto max-w-7xl">
         {/* Editorial section header */}
-        <div className="projects-header mb-20 flex items-end justify-between border-b border-zinc-200 pb-6">
+        <div className="projects-header mb-12 flex flex-col gap-4 border-b border-zinc-200 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-zinc-400">Chapter 01</span>
-            <h2 className="font-editorial mt-2 text-5xl font-bold italic tracking-[-0.02em] text-zinc-950 sm:text-6xl">
-              Projects
-            </h2>
+            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-400 sm:tracking-[0.3em]">{messages.projects.chapter}</span>
+            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em] text-zinc-950">{messages.projects.title}</h2>
           </div>
-          <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 sm:block">
-            {projects.length} Projects
+          <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.16em] text-zinc-400 sm:block sm:tracking-[0.2em]">
+            {projects.length} {messages.projects.countLabel}
           </span>
         </div>
 
-        {/* Editorial grid — alternating large/small */}
-        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
-          {projects.map((project, i) => {
-            const isFeature = i % 3 === 0;
-            return (
-              <div
-                key={project.title}
-                className={`project-card group cursor-pointer ${isFeature ? "md:col-span-2" : ""}`}
-              >
-                <div className={`${isFeature ? "grid gap-8 md:grid-cols-[1fr_1fr] md:items-start" : ""}`}>
-                  {/* Number + title column */}
-                  <div>
-                    {/* Large editorial number */}
-                    <span className="font-editorial block text-8xl font-light leading-none text-zinc-200 transition-colors duration-500 group-hover:text-zinc-950 sm:text-9xl">
-                      {String(i + 1).padStart(2, "0")}
+        {/* Project list — editorial catalogue style */}
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
+          {projects.map((project, i) => (
+            <div
+              key={project.title}
+              className={`project-row group relative overflow-hidden border border-zinc-200 p-6 transition-all duration-500 hover:border-zinc-400 hover:shadow-sm sm:p-8 lg:p-10 ${i === 0 ? "md:col-span-2" : ""}`}
+            >
+              {/* Background number */}
+              <span className="font-editorial pointer-events-none absolute -right-3 -top-5 text-[clamp(5rem,18vw,10rem)] font-light leading-none text-zinc-100 transition-colors duration-500 group-hover:text-zinc-200">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <div className="relative">
+                {/* Context label */}
+                <span className="font-mono text-[clamp(0.58rem,1.5vw,0.66rem)] uppercase tracking-[0.16em] text-zinc-400 sm:tracking-[0.2em]">
+                  {project.context}
+                </span>
+
+                {/* Title */}
+                <h3 className="font-editorial text-balance mt-3 text-[clamp(1.55rem,4vw,2rem)] font-bold text-zinc-950">
+                  {project.title}
+                </h3>
+
+                {/* Tagline */}
+                <p className="text-pretty mt-2 max-w-2xl text-[clamp(0.92rem,1.9vw,1rem)] leading-relaxed text-zinc-500">{project.tagline}</p>
+
+                {/* Divider */}
+                <div className="my-5 h-px w-12 bg-zinc-300 transition-all duration-500 group-hover:w-24 group-hover:bg-zinc-950" />
+
+                {/* Tags */}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border border-zinc-200 px-2.5 py-0.5 font-mono text-[clamp(0.58rem,1.5vw,0.66rem)] uppercase tracking-[0.05em] text-zinc-400 transition-colors duration-300 group-hover:border-zinc-300 group-hover:text-zinc-600"
+                    >
+                      {tag}
                     </span>
-                    <h3 className="font-editorial mt-4 text-2xl font-bold text-zinc-950 sm:text-3xl">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* Description column */}
-                  <div className={`${isFeature ? "md:pt-20" : "mt-4"}`}>
-                    <p className="text-base leading-[1.85] text-zinc-600">{project.description}</p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="border border-zinc-200 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-zinc-500 transition-colors group-hover:border-zinc-400 group-hover:text-zinc-700"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {/* Read more arrow */}
-                    <div className="mt-6 flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.12em] text-zinc-400 transition-colors group-hover:text-zinc-950">
-                      Read More
-                      <svg
-                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  ))}
+                  {"nda" in project && project.nda && (
+                    <span className="inline-flex items-center gap-1 border border-zinc-200 px-2.5 py-0.5 font-mono text-[clamp(0.58rem,1.5vw,0.66rem)] uppercase tracking-[0.05em] text-zinc-400">
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                       </svg>
-                    </div>
-                  </div>
+                      {messages.projects.nda}
+                    </span>
+                  )}
                 </div>
-
-                {/* Thin rule */}
-                <hr className="editorial-rule mt-10" />
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

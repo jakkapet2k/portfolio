@@ -1,0 +1,195 @@
+{
+	"navbar": {
+		"brand": "Jakkapet /.",
+		"navigation": "Navigation",
+		"toggleMenu": "Toggle menu",
+		"closeMenu": "Close menu",
+		"switchLanguage": "Switch language",
+		"menu": [
+			{ "href": "#about", "label": "About" },
+			{ "href": "#projects", "label": "Projects" },
+			{ "href": "#experience", "label": "Experience" },
+			{ "href": "#skills", "label": "Skills" },
+			{ "href": "#education", "label": "Education" },
+			{ "href": "#contact", "label": "Contact" }
+		]
+	},
+	"hero": {
+		"issue": "Issue No. 01 — Portfolio 2025",
+		"role": "Full Stack Developer",
+		"description": "A fast learner who loves new challenges — started coding as a student, now a full-time developer based in Bangkok, Thailand. Scroll down to learn more about my journey.",
+		"getInTouch": "Get in Touch",
+		"downloadCv": "Download CV",
+		"imageAlt": "Jakkapet Ladnok",
+		"locationCaption": "Bangkok, Thailand — 2025",
+		"scroll": "Scroll"
+	},
+	"about": {
+		"chapter": "Prologue",
+		"title": "About Me",
+		"sideLabel": "Who I Am",
+		"paragraphs": [
+			"I'm a Full Stack Developer who started out working on small front-end projects for multiple companies while studying, and later transitioned into a full-time role in this field. I have experience building back-office systems, trading platforms, and government-related applications, working across both front-end and back-end.",
+			"I've worked both independently and as part of a team, and I'm comfortable adapting to either environment. Working in a team has helped me grow quickly through collaboration and shared learning throughout each project. I'm a fast learner, enjoy trying new things, and am always looking for new challenges. I believe my skills and experience can contribute effectively to your team and organization."
+		]
+	},
+	"projects": {
+		"chapter": "Chapter 01",
+		"title": "Projects",
+		"countLabel": "Projects",
+		"nda": "NDA",
+		"items": [
+			{
+				"title": "Banking Merchant Back Office",
+				"tagline": "Merchant management and high-volume transaction processing",
+				"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Smart Trading Back Office",
+				"tagline": "Stock trading accounts, exchange data uploads and mobile APIs",
+				"tags": ["Next.JS", "Nest.JS", "TypeScript", "PostgreSQL", "MongoDB", "WebSocket"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Government Website",
+				"tagline": "Event map, area-based notifications and back-office APIs",
+				"tags": ["Next.JS", "Node.JS", "PHP", "Laravel", "MySQL", "MongoDB"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Clinic Management App",
+				"tagline": "POS, inventory tracking and multi-branch sales reports",
+				"tags": ["Next.JS", "Node.JS", "MySQL", "Express"],
+				"context": "Thewin dev tech co.,ltd."
+			},
+			{
+				"title": "Fiber Optic Monitoring System",
+				"tagline": "Hardware data integration, monitoring dashboard and DevOps",
+				"tags": ["AngularJS", "DevOps", "Ubuntu", "Git"],
+				"context": "Thewin dev tech co.,ltd.",
+				"nda": true
+			},
+			{
+				"title": "EDV Metaverse & NFT Marketplace",
+				"tagline": "Digital land sales platform and NFT trading interface",
+				"tags": ["Next.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "BSC"],
+				"context": "University Project"
+			}
+		]
+	},
+	"experience": {
+		"chapter": "Chapter 02",
+		"title": "Experience",
+		"countLabel": "Positions",
+		"items": [
+			{
+				"role": "Developer",
+				"company": "ClickNext co.,ltd.",
+				"period": "Apr 2025 — Present",
+				"projects": [
+					{
+						"name": "Banking Merchant Back Office",
+						"description": "Developed a Banking Back Office web system focused on merchant management, responsible for both Front-end development and Back-end API / Controller implementation to support high-volume transaction processing and optimized data export functionality for large-scale datasets (Excel/PDF).",
+						"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"]
+					},
+					{
+						"name": "Smart Trading Back Office",
+						"description": "Developed a Back Office web system for a stock trading application to manage user permissions and trading accounts, including a system for uploading stock market data files from the stock exchange. Worked on both Front-end and Back-end development, and built Back-end APIs for the mobile application to deliver and display trading-related data.",
+						"tags": ["Next.JS", "Nest.JS", "TypeScript", "PostgreSQL", "MongoDB", "WebSocket"]
+					},
+					{
+						"name": "Government Website",
+						"description": "Developed a website for a government agency, working on both front-end and back-end. Added features such as an event map and area-based notification system for the public, and built APIs for delivering data to public-facing pages as well as back-office APIs for managing event-related information.",
+						"tags": ["Next.JS", "Node.JS", "PHP", "Laravel", "MySQL", "MongoDB"]
+					}
+				]
+			},
+			{
+				"role": "Internship Full Stack Developer",
+				"company": "ClickNext co.,ltd.",
+				"period": "Dec 2024 — Apr 2025",
+				"projects": [
+					{
+						"name": "Banking Merchant Back Office",
+						"description": "Developed a Back-office system for a banking institution, encompassing both Front-end and Back-end development. Responsible for data retrieval and generating internal management reports. The system was built using Node.js frameworks, specifically AdonisJS for the backend and Nuxt.js for the frontend.",
+						"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"]
+					}
+				]
+			},
+			{
+				"role": "Co-founder & Developer",
+				"company": "Thewin dev tech co.,ltd.",
+				"period": "Jul 2023 — Dec 2024",
+				"projects": [
+					{
+						"name": "Fiber Optic Monitoring System",
+						"description": "Developed a web system for fiber optic management and monitoring/reporting, integrating data from hardware devices connected to the website. Took on a DevOps role, managing Bitbucket and Git servers on Ubuntu, and developed front-end interfaces for administrators and technicians using AngularJS.",
+						"tags": ["AngularJS", "DevOps", "Ubuntu", "Git"]
+					},
+					{
+						"name": "Clinic Management Web Application",
+						"description": "Developed a Clinic Management web application and APIs, including a POS system for product sales and a back-office system for managing inventory, events, and sales reports across multiple branches.",
+						"tags": ["Next.JS", "Node.JS", "MySQL", "Express"]
+					}
+				]
+			},
+			{
+				"role": "Student Developer",
+				"company": "University Project",
+				"period": "Aug 2021 — Dec 2022",
+				"projects": [
+					{
+						"name": "EDV Metaverse",
+						"description": "Designed the UI/UX and developed the frontend for the EDV Metaverse digital land sales platform, creating an interactive user interface and successfully integrated backend APIs to handle complex land data and user purchase transactions seamlessly.",
+						"tags": ["Next.JS", "Node.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "Binance Smart Chain"]
+					},
+					{
+						"name": "EDV NFT Marketplace",
+						"description": "Developed the frontend for the EDV NFT Marketplace, focusing on a responsive and high-performance interface for digital asset trading and integrating backend APIs to support asset listings and core marketplace functionalities.",
+						"tags": ["Next.JS", "Node.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "Binance Smart Chain"]
+					}
+				]
+			}
+		]
+	},
+	"skills": {
+		"chapter": "Chapter 03",
+		"title": "Skills",
+		"countLabel": "Skills",
+		"items": [
+			{ "category": "Frontend", "values": ["TypeScript", "NuxtJS", "Next.js", "Tailwind CSS", "Shadcn UI", "PHP"] },
+			{ "category": "Backend", "values": ["NestJS", "AdonisJS", "Go", "Python", "Laravel"] },
+			{ "category": "Database", "values": ["Redis", "MongoDB", "PostgreSQL", "MySQL"] },
+			{ "category": "Tools", "values": ["Git", "Docker", "DevOps", "Ubuntu", "Bitbucket"] }
+		]
+	},
+	"education": {
+		"chapter": "Chapter 04",
+		"title": "Education",
+		"items": [
+			{
+				"degree": "Bachelor of Science in Information Technology",
+				"school": "Mahasarakham University",
+				"period": "2019 — 2023",
+				"detail": "GPAX: 3.42 — Focused on software engineering and web technologies. Built EDV Metaverse and NFT Marketplace projects during university."
+			}
+		]
+	},
+	"contact": {
+		"chapter": "Available for Hire",
+		"titleLine1": "Invite Me",
+		"titleLine2": "To Join Your Team",
+		"body": "If you're looking for a developer who can contribute quickly, learn fast, and grow with your team, reach out at",
+		"callLabel": "or call",
+		"emailCta": "Contact",
+		"githubCta": "GitHub"
+	},
+	"footer": {
+		"name": "Jakkapet Ladnok",
+		"rights": "All Rights Reserved",
+		"github": "GitHub",
+		"linkedin": "LinkedIn",
+		"email": "Email"
+	}
+}

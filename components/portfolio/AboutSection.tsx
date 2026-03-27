@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "@/components/providers/LocaleProvider";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
@@ -7,6 +8,7 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
+  const { messages } = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -32,41 +34,29 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="border-t border-zinc-200 bg-zinc-50 px-6 py-32 sm:px-10">
+    <section ref={sectionRef} className="border-t border-zinc-200 bg-zinc-50 px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32">
       <div className="about-content mx-auto max-w-7xl">
         {/* Editorial section header */}
-        <div className="about-header mb-20 flex items-end justify-between border-b border-zinc-200 pb-6">
+        <div className="about-header mb-12 flex flex-col gap-4 border-b border-zinc-200 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-zinc-400">Prologue</span>
-            <h2 className="font-editorial mt-2 text-5xl font-bold italic tracking-[-0.02em] text-zinc-950 sm:text-6xl">
-              About Me
-            </h2>
+            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-400 sm:tracking-[0.3em]">{messages.about.chapter}</span>
+            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em] text-zinc-950">{messages.about.title}</h2>
           </div>
-          <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 sm:block">
-            Who I Am
+          <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.16em] text-zinc-400 sm:block sm:tracking-[0.2em]">
+            {messages.about.sideLabel}
           </span>
         </div>
 
         {/* Content grid with editorial number accent */}
-        <div className="grid gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+        <div className="grid gap-8 md:grid-cols-[auto_1fr] md:gap-16">
           {/* Large decorative quote mark */}
           <span className="font-editorial hidden text-[10rem] font-light leading-none text-zinc-100 select-none md:block">
             &ldquo;
           </span>
 
           <div className="space-y-8">
-            <p className="text-lg leading-[1.9] text-zinc-600 sm:text-xl sm:leading-[1.9]">
-              I&apos;m a Full Stack Developer who started out working on small front-end projects for multiple companies
-              while studying, and later transitioned into a full-time role in this field. I have experience building
-              back-office systems, trading platforms, and government-related applications, working across both front-end
-              and back-end.
-            </p>
-            <p className="text-base leading-[1.9] text-zinc-500">
-              I&apos;ve worked both independently and as part of a team, and I&apos;m comfortable adapting to either
-              environment. Working in a team has helped me grow quickly through collaboration and shared learning
-              throughout each project. I&apos;m a fast learner, enjoy trying new things, and am always looking for new
-              challenges. I believe my skills and experience can contribute effectively to your team and organization.
-            </p>
+            <p className="text-pretty text-[clamp(1.05rem,2.5vw,1.35rem)] leading-[1.8] text-zinc-600 sm:leading-[1.9]">{messages.about.paragraphs[0]}</p>
+            <p className="text-pretty text-[clamp(0.98rem,2.1vw,1.08rem)] leading-[1.85] text-zinc-500">{messages.about.paragraphs[1]}</p>
           </div>
         </div>
       </div>

@@ -86,16 +86,16 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
       );
 
       // ── Phase 3: Exit ──
-      // Name slides out
+      // Name fades away
       tl.to(
         nameFirstRef.current,
-        { clipPath: "inset(0 0 100% 0)", opacity: 0, duration: 0.5, ease: "power3.in" },
+        { opacity: 0, y: -18, duration: 0.45, ease: "power2.inOut" },
         "+=0.6",
       );
       tl.to(
         nameLastRef.current,
-        { clipPath: "inset(0 0 0 100%)", opacity: 0, duration: 0.5, ease: "power3.in" },
-        "-=0.4",
+        { opacity: 0, y: 18, duration: 0.45, ease: "power2.inOut" },
+        "<",
       );
 
       // Everything else fades
@@ -129,21 +129,21 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   return (
     <div ref={containerRef} className="fixed inset-0 z-[9999] overflow-hidden">
       {/* Curtain panels — horizontal split */}
-      <div ref={curtainLeftRef} className="absolute inset-y-0 left-0 z-0 w-1/2 bg-zinc-950" />
-      <div ref={curtainRightRef} className="absolute inset-y-0 right-0 z-0 w-1/2 bg-zinc-950" />
+      <div ref={curtainLeftRef} className="absolute inset-y-0 left-0 z-0 w-1/2 bg-zinc-50" />
+      <div ref={curtainRightRef} className="absolute inset-y-0 right-0 z-0 w-1/2 bg-zinc-50" />
 
       {/* Content layer */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6">
         {/* Corner frames — editorial accent */}
-        <div ref={cornerTLRef} className="absolute left-8 top-8 h-12 w-12 border-l border-t border-zinc-700 opacity-0 sm:left-12 sm:top-12 sm:h-16 sm:w-16" />
-        <div ref={cornerTRRef} className="absolute right-8 top-8 h-12 w-12 border-r border-t border-zinc-700 opacity-0 sm:right-12 sm:top-12 sm:h-16 sm:w-16" />
-        <div ref={cornerBLRef} className="absolute bottom-8 left-8 h-12 w-12 border-b border-l border-zinc-700 opacity-0 sm:bottom-12 sm:left-12 sm:h-16 sm:w-16" />
-        <div ref={cornerBRRef} className="absolute bottom-8 right-8 h-12 w-12 border-b border-r border-zinc-700 opacity-0 sm:bottom-12 sm:right-12 sm:h-16 sm:w-16" />
+        <div ref={cornerTLRef} className="absolute left-8 top-8 h-12 w-12 border-l border-t border-zinc-300 opacity-0 sm:left-12 sm:top-12 sm:h-16 sm:w-16" />
+        <div ref={cornerTRRef} className="absolute right-8 top-8 h-12 w-12 border-r border-t border-zinc-300 opacity-0 sm:right-12 sm:top-12 sm:h-16 sm:w-16" />
+        <div ref={cornerBLRef} className="absolute bottom-8 left-8 h-12 w-12 border-b border-l border-zinc-300 opacity-0 sm:bottom-12 sm:left-12 sm:h-16 sm:w-16" />
+        <div ref={cornerBRRef} className="absolute bottom-8 right-8 h-12 w-12 border-b border-r border-zinc-300 opacity-0 sm:bottom-12 sm:right-12 sm:h-16 sm:w-16" />
 
         {/* Issue label */}
         <div
           ref={issueRef}
-          className="absolute top-12 font-mono text-[10px] uppercase tracking-[0.35em] text-zinc-500 opacity-0 sm:top-16"
+          className="absolute top-8 max-w-[min(90vw,32rem)] px-4 text-center font-mono text-[clamp(0.52rem,1.5vw,0.66rem)] uppercase tracking-[0.18em] text-zinc-400 opacity-0 sm:top-16 sm:tracking-[0.3em]"
         >
           Issue No. 01 — Portfolio 2025
         </div>
@@ -152,37 +152,37 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         <div className="flex flex-col items-center">
           <div
             ref={nameFirstRef}
-            className="font-editorial pb-3 text-6xl font-bold italic leading-[1.1] tracking-[-0.02em] text-white opacity-0 sm:text-8xl lg:text-9xl"
+            className="font-editorial text-balance pb-2 text-center text-[clamp(2.7rem,12vw,7.2rem)] font-bold italic leading-[0.98] tracking-[-0.04em] text-zinc-950 opacity-0 sm:pb-3 sm:leading-[1.02] sm:tracking-[-0.03em] lg:text-[clamp(6rem,9vw,8rem)]"
           >
             Jakkapet
           </div>
           <div
             ref={nameLastRef}
-            className="font-editorial text-6xl font-bold italic leading-[1.1] tracking-[-0.02em] text-zinc-500 opacity-0 sm:text-8xl lg:text-9xl"
+            className="font-editorial text-balance text-center text-[clamp(2.7rem,12vw,7.2rem)] font-bold italic leading-[0.98] tracking-[-0.04em] text-zinc-300 opacity-0 sm:leading-[1.02] sm:tracking-[-0.03em] lg:text-[clamp(6rem,9vw,8rem)]"
           >
             Ladnok
           </div>
 
           {/* Thin rule */}
-          <div ref={ruleRef} className="mt-6 h-px w-20 origin-center bg-zinc-600 sm:mt-8 sm:w-28" />
+          <div ref={ruleRef} className="mt-5 h-px w-16 origin-center bg-zinc-300 sm:mt-8 sm:w-28" />
 
           {/* Role */}
           <div
             ref={roleRef}
-            className="mt-4 font-mono text-[10px] font-medium uppercase text-zinc-400 opacity-0 sm:text-[11px]"
+            className="mt-3 max-w-[min(90vw,28rem)] px-4 text-center font-mono text-[clamp(0.55rem,1.6vw,0.72rem)] font-medium uppercase tracking-[0.14em] text-zinc-500 opacity-0 sm:mt-4 sm:tracking-[0.24em]"
           >
             Full Stack Developer
           </div>
 
           {/* Year */}
-          <div ref={yearRef} className="mt-3 font-editorial text-sm italic text-zinc-600 opacity-0">
+          <div ref={yearRef} className="mt-2 px-4 text-center font-editorial text-[clamp(0.78rem,1.9vw,0.95rem)] italic text-zinc-400 opacity-0 sm:mt-3">
             Based in Bangkok, Thailand
           </div>
         </div>
 
         {/* Progress bar — bottom */}
-        <div ref={progressTrackRef} className="absolute bottom-12 left-1/2 w-32 -translate-x-1/2 sm:bottom-16 sm:w-40">
-          <div className="h-px w-full bg-zinc-800" />
+        <div ref={progressTrackRef} className="absolute bottom-10 left-1/2 w-24 -translate-x-1/2 sm:bottom-16 sm:w-40">
+          <div className="h-px w-full bg-zinc-200" />
           <div ref={progressRef} className="absolute inset-y-0 left-0 h-px w-full origin-left bg-zinc-500" />
         </div>
       </div>
