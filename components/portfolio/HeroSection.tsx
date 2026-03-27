@@ -52,7 +52,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative flex min-h-[calc(100vh-65px)] items-center overflow-hidden bg-white px-6 py-24 sm:px-10"
+      className="relative flex min-h-[calc(100vh-65px)] items-center overflow-hidden bg-white px-6 pt-5 pb-24 sm:px-10"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col-reverse gap-16 lg:flex-row lg:items-center lg:gap-20">
         {/* Text Column */}
@@ -79,8 +79,8 @@ export default function HeroSection() {
             Full Stack Developer
           </p>
           <p className="hero-desc mt-5 max-w-md text-base leading-[1.85] text-zinc-600">
-            Based in Bangkok, Thailand — building scalable web applications for banking, government &amp; enterprise
-            clients with modern frameworks and clean architecture.
+            A fast learner who loves new challenges — started coding as a student, now a full-time developer based in
+            Bangkok, Thailand. Scroll down to learn more about my journey.
           </p>
 
           <div className="mt-10 flex items-center gap-5">
