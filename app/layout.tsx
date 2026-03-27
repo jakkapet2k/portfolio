@@ -1,3 +1,4 @@
+import { LocaleProvider } from "@/components/providers/LocaleProvider";
 import AppShell from "@/components/AppShell";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
@@ -33,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <AppShell>{children}</AppShell>
+        <LocaleProvider>
+          <AppShell>{children}</AppShell>
+        </LocaleProvider>
       </body>
     </html>
   );

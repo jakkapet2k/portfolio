@@ -1,19 +1,15 @@
 "use client";
 
+import { useLocale } from "@/components/providers/LocaleProvider";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skills = [
-  { category: "Frontend", items: ["TypeScript", "NuxtJS", "Next.js", "Tailwind CSS", "Shadcn UI", "PHP"] },
-  { category: "Backend", items: ["NestJS", "AdonisJS", "Go", "Python", "Laravel"] },
-  { category: "Database", items: ["Redis", "MongoDB", "PostgreSQL", "MySQL"] },
-  { category: "Tools", items: ["Git", "Docker", "DevOps", "Ubuntu", "Bitbucket"] },
-];
-
 const SkillsSection = function SkillsSection() {
+  const { messages } = useLocale();
+  const skills = messages.skills.items;
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -49,34 +45,34 @@ const SkillsSection = function SkillsSection() {
     <section
       ref={sectionRef}
       id="skills"
-      className="border-t border-zinc-200 bg-zinc-950 px-6 py-32 text-white sm:px-10"
+      className="border-t border-zinc-200 bg-zinc-950 px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="skills-header mb-20 flex items-end justify-between border-b border-zinc-800 pb-6">
+        <div className="skills-header mb-12 flex flex-col gap-4 border-b border-zinc-800 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-zinc-500">Chapter 03</span>
-            <h2 className="font-editorial mt-2 text-5xl font-bold italic tracking-[-0.02em] sm:text-6xl">Skills</h2>
+            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-500 sm:tracking-[0.3em]">{messages.skills.chapter}</span>
+            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em]">{messages.skills.title}</h2>
           </div>
-          <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500 sm:block">
-            {skills.reduce((acc, s) => acc + s.items.length, 0)} Skills
+          <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.16em] text-zinc-500 sm:block sm:tracking-[0.2em]">
+            {skills.reduce((acc, skill) => acc + skill.values.length, 0)} {messages.skills.countLabel}
           </span>
         </div>
 
-        <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-16">
           {skills.map((skill) => (
             <div key={skill.category} className="skill-group">
-              <h3 className="mb-6 border-b border-zinc-800 pb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-zinc-500">
+              <h3 className="mb-5 border-b border-zinc-800 pb-3 font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] font-semibold uppercase tracking-[0.22em] text-zinc-500 sm:mb-6 sm:tracking-[0.3em]">
                 {skill.category}
               </h3>
-              <ul className="space-y-4">
-                {skill.items.map((item) => (
+              <ul className="space-y-3.5 sm:space-y-4">
+                {skill.values.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center justify-between text-base text-zinc-400 transition-colors hover:text-white"
+                    className="flex items-center justify-between gap-3 text-[clamp(0.98rem,2vw,1.05rem)] text-zinc-400 transition-colors hover:text-white"
                   >
                     <span>{item}</span>
                     <span className="h-px flex-1 mx-3 bg-zinc-800" />
-                    <span className="font-mono text-[10px] text-zinc-600">●</span>
+                    <span className="font-mono text-[clamp(0.58rem,1.5vw,0.66rem)] text-zinc-600">●</span>
                   </li>
                 ))}
               </ul>

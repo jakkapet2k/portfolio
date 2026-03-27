@@ -1,22 +1,15 @@
 "use client";
 
+import { useLocale } from "@/components/providers/LocaleProvider";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const education = [
-  {
-    degree: "Bachelor of Science in Information Technology",
-    school: "Mahasarakham University",
-    period: "2019 — 2023",
-    detail:
-      "GPAX: 3.42 — Focused on software engineering and web technologies. Built EDV Metaverse and NFT Marketplace projects during university.",
-  },
-];
-
 const EducationSection = function EducationSection() {
+  const { messages } = useLocale();
+  const education = messages.education.items;
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -43,33 +36,31 @@ const EducationSection = function EducationSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="education" className="border-t border-zinc-200 bg-white px-6 py-32 sm:px-10">
+    <section ref={sectionRef} id="education" className="border-t border-zinc-200 bg-white px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="education-header mb-20 flex items-end justify-between border-b border-zinc-200 pb-6">
+        <div className="education-header mb-12 flex flex-col gap-4 border-b border-zinc-200 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-zinc-400">Chapter 04</span>
-            <h2 className="font-editorial mt-2 text-5xl font-bold italic tracking-[-0.02em] text-zinc-950 sm:text-6xl">
-              Education
-            </h2>
+            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-400 sm:tracking-[0.3em]">{messages.education.chapter}</span>
+            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em] text-zinc-950">{messages.education.title}</h2>
           </div>
         </div>
 
         <div className="space-y-10">
           {education.map((edu) => (
-            <div key={edu.degree} className="education-card grid gap-8 md:grid-cols-[200px_1fr_1fr] md:gap-12">
+            <div key={edu.degree} className="education-card grid gap-6 sm:gap-8 md:grid-cols-[200px_1fr_1fr] md:gap-12">
               {/* Period */}
               <div>
-                <span className="font-mono text-[12px] uppercase tracking-[0.15em] text-zinc-400">{edu.period}</span>
+                <span className="font-mono text-[clamp(0.68rem,1.8vw,0.75rem)] uppercase tracking-[0.12em] text-zinc-400 sm:tracking-[0.15em]">{edu.period}</span>
               </div>
 
               {/* Degree & School */}
               <div>
-                <h3 className="font-editorial text-2xl font-bold text-zinc-950">{edu.degree}</h3>
-                <p className="mt-1 text-sm italic text-zinc-400">{edu.school}</p>
+                <h3 className="font-editorial text-balance text-[clamp(1.55rem,3.7vw,2rem)] font-bold text-zinc-950">{edu.degree}</h3>
+                <p className="mt-1 text-[clamp(0.92rem,1.9vw,1rem)] italic text-zinc-400">{edu.school}</p>
               </div>
 
               {/* Detail */}
-              <p className="text-base leading-[1.85] text-zinc-600">{edu.detail}</p>
+              <p className="text-pretty text-[clamp(0.98rem,2.05vw,1.05rem)] leading-[1.8] text-zinc-600 sm:leading-[1.85]">{edu.detail}</p>
             </div>
           ))}
         </div>

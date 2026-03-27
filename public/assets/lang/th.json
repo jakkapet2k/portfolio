@@ -1,0 +1,195 @@
+{
+	"navbar": {
+		"brand": "Jakkapet /.",
+		"navigation": "เมนูนำทาง",
+		"toggleMenu": "เปิดเมนู",
+		"closeMenu": "ปิดเมนู",
+		"switchLanguage": "เปลี่ยนภาษา",
+		"menu": [
+			{ "href": "#about", "label": "เกี่ยวกับ" },
+			{ "href": "#projects", "label": "โปรเจกต์" },
+			{ "href": "#experience", "label": "ประสบการณ์" },
+			{ "href": "#skills", "label": "ทักษะ" },
+			{ "href": "#education", "label": "การศึกษา" },
+			{ "href": "#contact", "label": "ติดต่อ" }
+		]
+	},
+	"hero": {
+		"issue": "ฉบับที่ 01 — พอร์ตโฟลิโอ 2025",
+		"role": "นักพัฒนา Full Stack",
+		"description": "ผมเป็นคนเรียนรู้ไวและชอบความท้าทายใหม่ ๆ เริ่มต้นจากการเขียนโค้ดตอนเรียน และปัจจุบันทำงานเป็นนักพัฒนาแบบเต็มเวลาอยู่ที่กรุงเทพฯ เลื่อนลงเพื่อดูเส้นทางการทำงานของผมเพิ่มเติมได้เลย",
+		"getInTouch": "ติดต่อผม",
+		"downloadCv": "ดาวน์โหลด CV",
+		"imageAlt": "จักรเพชร ลาดนอก",
+		"locationCaption": "กรุงเทพฯ ประเทศไทย — 2025",
+		"scroll": "เลื่อนลง"
+	},
+	"about": {
+		"chapter": "บทนำ",
+		"title": "เกี่ยวกับผม",
+		"sideLabel": "ตัวตนของผม",
+		"paragraphs": [
+			"ผมเป็น Full Stack Developer ที่เริ่มจากการทำงานฝั่ง Front-end ให้หลายบริษัทระหว่างเรียน ก่อนจะเปลี่ยนมาทำงานสายนี้แบบเต็มเวลา มีประสบการณ์สร้างระบบ Back-office, แพลตฟอร์มเทรด และระบบที่เกี่ยวข้องกับหน่วยงานภาครัฐ ทั้งฝั่ง Front-end และ Back-end",
+			"ผมสามารถทำงานได้ทั้งแบบเดี่ยวและแบบทีม และปรับตัวเข้ากับสภาพแวดล้อมการทำงานได้ดี การทำงานร่วมกับทีมช่วยให้ผมเติบโตเร็วผ่านการแลกเปลี่ยนความรู้และการร่วมแก้ปัญหาในแต่ละโปรเจกต์ ผมชอบเรียนรู้สิ่งใหม่ ชอบลองของใหม่ และมองหาความท้าทายอยู่เสมอ ผมเชื่อว่าทักษะและประสบการณ์ของผมสามารถสร้างคุณค่าให้ทีมและองค์กรได้จริง"
+		]
+	},
+	"projects": {
+		"chapter": "บทที่ 01",
+		"title": "โปรเจกต์",
+		"countLabel": "โปรเจกต์",
+		"nda": "NDA",
+		"items": [
+			{
+				"title": "Banking Merchant Back Office",
+				"tagline": "ระบบจัดการร้านค้าและการประมวลผลธุรกรรมปริมาณสูง",
+				"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Smart Trading Back Office",
+				"tagline": "ระบบบัญชีซื้อขายหุ้น อัปโหลดข้อมูลตลาด และ Mobile APIs",
+				"tags": ["Next.JS", "Nest.JS", "TypeScript", "PostgreSQL", "MongoDB", "WebSocket"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Government Website",
+				"tagline": "แผนที่กิจกรรม การแจ้งเตือนตามพื้นที่ และ Back-office APIs",
+				"tags": ["Next.JS", "Node.JS", "PHP", "Laravel", "MySQL", "MongoDB"],
+				"context": "ClickNext co.,ltd."
+			},
+			{
+				"title": "Clinic Management App",
+				"tagline": "ระบบคลินิกพร้อม POS, สต็อกสินค้า และรายงานหลายสาขา",
+				"tags": ["Next.JS", "Node.JS", "MySQL", "Express"],
+				"context": "Thewin dev tech co.,ltd."
+			},
+			{
+				"title": "Fiber Optic Monitoring System",
+				"tagline": "เชื่อมข้อมูลอุปกรณ์จริง ระบบมอนิเตอร์ และงาน DevOps",
+				"tags": ["AngularJS", "DevOps", "Ubuntu", "Git"],
+				"context": "Thewin dev tech co.,ltd.",
+				"nda": true
+			},
+			{
+				"title": "EDV Metaverse & NFT Marketplace",
+				"tagline": "แพลตฟอร์มขายที่ดินดิจิทัลและอินเทอร์เฟซซื้อขาย NFT",
+				"tags": ["Next.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "BSC"],
+				"context": "University Project"
+			}
+		]
+	},
+	"experience": {
+		"chapter": "บทที่ 02",
+		"title": "ประสบการณ์",
+		"countLabel": "ตำแหน่ง",
+		"items": [
+			{
+				"role": "Developer",
+				"company": "ClickNext co.,ltd.",
+				"period": "เม.ย. 2025 — ปัจจุบัน",
+				"projects": [
+					{
+						"name": "Banking Merchant Back Office",
+						"description": "พัฒนาระบบ Banking Back Office สำหรับงานบริหารร้านค้า ดูแลทั้งฝั่ง Front-end และ Back-end API / Controller เพื่อรองรับการประมวลผลธุรกรรมจำนวนมาก และพัฒนาฟีเจอร์ส่งออกข้อมูลขนาดใหญ่เป็น Excel/PDF",
+						"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"]
+					},
+					{
+						"name": "Smart Trading Back Office",
+						"description": "พัฒนาระบบ Back Office สำหรับแอปเทรดหุ้น จัดการสิทธิ์ผู้ใช้ บัญชีซื้อขาย และระบบอัปโหลดไฟล์ข้อมูลตลาดหุ้นจากตลาดหลักทรัพย์ รวมถึงสร้าง Back-end APIs สำหรับแอปมือถือเพื่อส่งข้อมูลการซื้อขาย",
+						"tags": ["Next.JS", "Nest.JS", "TypeScript", "PostgreSQL", "MongoDB", "WebSocket"]
+					},
+					{
+						"name": "Government Website",
+						"description": "พัฒนาเว็บไซต์หน่วยงานภาครัฐทั้งฝั่ง Front-end และ Back-end เพิ่มความสามารถด้าน event map, ระบบแจ้งเตือนตามพื้นที่ และ APIs สำหรับทั้งหน้า public และระบบหลังบ้าน",
+						"tags": ["Next.JS", "Node.JS", "PHP", "Laravel", "MySQL", "MongoDB"]
+					}
+				]
+			},
+			{
+				"role": "Internship Full Stack Developer",
+				"company": "ClickNext co.,ltd.",
+				"period": "ธ.ค. 2024 — เม.ย. 2025",
+				"projects": [
+					{
+						"name": "Banking Merchant Back Office",
+						"description": "พัฒนาระบบ Back-office สำหรับสถาบันการเงินทั้งฝั่ง Front-end และ Back-end รับผิดชอบการดึงข้อมูลและสร้างรายงานสำหรับการจัดการภายใน โดยใช้ AdonisJS ฝั่ง backend และ Nuxt.js ฝั่ง frontend",
+						"tags": ["Nuxt.JS", "AdonisJS", "TypeScript", "PostgreSQL"]
+					}
+				]
+			},
+			{
+				"role": "Co-founder & Developer",
+				"company": "Thewin dev tech co.,ltd.",
+				"period": "ก.ค. 2023 — ธ.ค. 2024",
+				"projects": [
+					{
+						"name": "Fiber Optic Monitoring System",
+						"description": "พัฒนาระบบบริหารและมอนิเตอร์งาน fiber optic โดยเชื่อมข้อมูลจากอุปกรณ์ภาคสนามเข้ากับเว็บไซต์ รับผิดชอบงาน DevOps ดูแล Bitbucket และ Git server บน Ubuntu รวมถึงพัฒนา interface สำหรับผู้ดูแลและช่างเทคนิคด้วย AngularJS",
+						"tags": ["AngularJS", "DevOps", "Ubuntu", "Git"]
+					},
+					{
+						"name": "Clinic Management Web Application",
+						"description": "พัฒนาระบบบริหารคลินิกและ APIs รวมถึง POS สำหรับขายสินค้า ระบบจัดการสต็อก กิจกรรม และรายงานยอดขายสำหรับหลายสาขา",
+						"tags": ["Next.JS", "Node.JS", "MySQL", "Express"]
+					}
+				]
+			},
+			{
+				"role": "Student Developer",
+				"company": "University Project",
+				"period": "ส.ค. 2021 — ธ.ค. 2022",
+				"projects": [
+					{
+						"name": "EDV Metaverse",
+						"description": "ออกแบบ UI/UX และพัฒนา frontend ของแพลตฟอร์มขายที่ดินดิจิทัล EDV Metaverse สร้างประสบการณ์ใช้งานแบบ interactive และเชื่อมต่อ backend APIs เพื่อรองรับข้อมูลที่ดินและการทำธุรกรรมซื้อขาย",
+						"tags": ["Next.JS", "Node.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "Binance Smart Chain"]
+					},
+					{
+						"name": "EDV NFT Marketplace",
+						"description": "พัฒนา frontend ของ EDV NFT Marketplace โดยเน้น responsive และ performance สำหรับการซื้อขายสินทรัพย์ดิจิทัล พร้อมเชื่อม backend APIs สำหรับรายการสินค้าและฟังก์ชันหลักของ marketplace",
+						"tags": ["Next.JS", "Node.JS", "Nest.JS", "Web3.JS", "TypeScript", "PostgreSQL", "Binance Smart Chain"]
+					}
+				]
+			}
+		]
+	},
+	"skills": {
+		"chapter": "บทที่ 03",
+		"title": "ทักษะ",
+		"countLabel": "ทักษะ",
+		"items": [
+			{ "category": "Frontend", "values": ["TypeScript", "NuxtJS", "Next.js", "Tailwind CSS", "Shadcn UI", "PHP"] },
+			{ "category": "Backend", "values": ["NestJS", "AdonisJS", "Go", "Python", "Laravel"] },
+			{ "category": "Database", "values": ["Redis", "MongoDB", "PostgreSQL", "MySQL"] },
+			{ "category": "Tools", "values": ["Git", "Docker", "DevOps", "Ubuntu", "Bitbucket"] }
+		]
+	},
+	"education": {
+		"chapter": "บทที่ 04",
+		"title": "การศึกษา",
+		"items": [
+			{
+				"degree": "Bachelor of Science in Information Technology",
+				"school": "Mahasarakham University",
+				"period": "2019 — 2023",
+				"detail": "GPAX: 3.42 — เน้นด้านวิศวกรรมซอฟต์แวร์และเทคโนโลยีเว็บ พร้อมพัฒนาโปรเจกต์ EDV Metaverse และ NFT Marketplace ระหว่างเรียน"
+			}
+		]
+	},
+	"contact": {
+		"chapter": "พร้อมร่วมทีม",
+		"titleLine1": "ชวนผม",
+		"titleLine2": "ไปร่วมทีมคุณ",
+		"body": "หากคุณกำลังมองหานักพัฒนาที่พร้อมลงมือทำ เรียนรู้ไว และเติบโตไปพร้อมทีมของคุณ สามารถติดต่อผมได้ที่",
+		"callLabel": "หรือโทร",
+		"emailCta": "ติดต่อ",
+		"githubCta": "GitHub"
+	},
+	"footer": {
+		"name": "Jakkapet Ladnok",
+		"rights": "สงวนลิขสิทธิ์",
+		"github": "GitHub",
+		"linkedin": "LinkedIn",
+		"email": "อีเมล"
+	}
+}

@@ -1,27 +1,30 @@
 "use client";
 
+import { useLocale } from "@/components/providers/LocaleProvider";
 import gsap from "gsap";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const menuItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
-];
+function GlobeIcon() {
+  return (
+    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9Zm0 0c2.02 2.22 3.15 5.12 3.2 8.12C15.15 14.13 14.02 17.02 12 19.25m0-16.25c-2.02 2.22-3.15 5.12-3.2 8.12.05 3.01 1.18 5.9 3.2 8.13m-8.05-5.38h16.1M3.95 9.25h16.1"
+      />
+    </svg>
+  );
+}
 
 export default function Navbar() {
+  const { locale, messages, toggleLocale, t } = useLocale();
+  const menuItems = messages.navbar.menu;
   const [activeSection, setActiveSection] = useState("#about");
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const brandRef = useRef<HTMLAnchorElement>(null);
   const desktopNavRef = useRef<HTMLDivElement>(null);
-  const mobilePanelRef = useRef<HTMLElement>(null);
-  const mobileItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const navLinksRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const pillRef = useRef<HTMLSpanElement>(null);
   const clickLockRef = useRef(false);
@@ -65,60 +68,21 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuItems]);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-
-    const panel = mobilePanelRef.current;
-    if (!panel) {
-      return () => {
-        document.body.style.overflow = "";
-      };
-    }
-
-    if (menuOpen) {
-      panel.style.visibility = "visible";
-      panel.style.pointerEvents = "auto";
-      gsap.fromTo(
-        panel,
-        { xPercent: 100, opacity: 0 },
-        { xPercent: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
-      );
-
-      gsap.fromTo(
-        mobileItemsRef.current.filter(Boolean),
-        { opacity: 0, x: 18 },
-        { opacity: 1, x: 0, duration: 0.35, stagger: 0.05, delay: 0.08, ease: "power2.out" },
-      );
-    } else {
-      gsap.to(panel, {
-        xPercent: 100,
-        opacity: 0,
-        duration: 0.25,
-        ease: "power3.in",
-        onComplete: () => {
-          panel.style.visibility = "hidden";
-          panel.style.pointerEvents = "none";
-        },
-      });
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
-  // Animate active pill indicator
   useEffect(() => {
     const activeIndex = menuItems.findIndex((item) => item.href === activeSection);
     const activeLink = navLinksRef.current[activeIndex];
     const pill = pillRef.current;
 
-    if (!activeLink || !pill) return;
+    if (!activeLink || !pill) {
+      return;
+    }
 
     const parentUl = pill.parentElement;
-    if (!parentUl) return;
+    if (!parentUl) {
+      return;
+    }
 
     const parentRect = parentUl.getBoundingClientRect();
     const linkRect = activeLink.getBoundingClientRect();
@@ -130,12 +94,22 @@ export default function Navbar() {
       duration: 0.4,
       ease: "power3.out",
     });
-  }, [activeSection]);
+  }, [activeSection, menuItems]);
+
+  const handleNavigate = (href: string) => {
+    clickLockRef.current = true;
+    setActiveSection(href);
+    const target = document.getElementById(href.slice(1));
+    target?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      clickLockRef.current = false;
+    }, 900);
+  };
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       <div
-        className={`flex w-full items-center justify-between px-6 py-3 transition-all duration-500 sm:px-10 lg:px-16 ${
+        className={`flex w-full items-center justify-between gap-4 px-4 py-3 transition-all duration-500 sm:px-8 lg:px-16 ${
           scrolled
             ? "border-b border-zinc-200/90 bg-white/88 shadow-[0_4px_20px_rgba(0,0,0,0.06)] backdrop-blur-xl"
             : "border-b border-transparent bg-transparent shadow-none"
@@ -144,41 +118,45 @@ export default function Navbar() {
         <Link
           ref={brandRef}
           href="#about"
-          className="font-editorial text-2xl font-bold italic tracking-[-0.02em] text-zinc-950 sm:text-3xl"
+          className="font-editorial shrink-0 text-[clamp(1.5rem,4vw,1.9rem)] font-bold italic tracking-[-0.02em] text-zinc-950"
         >
-          Jakkapet /.
+          {messages.navbar.brand}
         </Link>
 
-        <div ref={desktopNavRef} className="hidden lg:block">
+        <button
+          type="button"
+          onClick={toggleLocale}
+          className="inline-flex h-10 shrink-0 items-center gap-2 px-1 font-mono text-[clamp(0.62rem,1.8vw,0.7rem)] uppercase tracking-[0.12em] text-zinc-500 transition-colors duration-300 hover:text-zinc-950 lg:hidden"
+          aria-label={t("navbar.switchLanguage")}
+          title={t("navbar.switchLanguage")}
+        >
+          <GlobeIcon />
+          {locale.toUpperCase()}
+        </button>
+
+        <div ref={desktopNavRef} className="hidden items-center gap-3 lg:flex">
           <nav aria-label="Primary navigation" className="p-1">
             <ul className="relative flex items-center gap-0">
-              {/* Sliding underline indicator */}
               <span
                 ref={pillRef}
                 className="pointer-events-none absolute bottom-0 left-0 h-px bg-zinc-950 opacity-0"
                 style={{ width: 0 }}
               />
-              {menuItems.map((item, i) => {
+              {menuItems.map((item, index) => {
                 const isActive = activeSection === item.href;
 
                 return (
                   <li key={item.href} className="relative z-10">
                     <Link
                       ref={(el) => {
-                        navLinksRef.current[i] = el;
+                        navLinksRef.current[index] = el;
                       }}
                       href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        clickLockRef.current = true;
-                        setActiveSection(item.href);
-                        const target = document.getElementById(item.href.slice(1));
-                        target?.scrollIntoView({ behavior: "smooth" });
-                        setTimeout(() => {
-                          clickLockRef.current = false;
-                        }, 900);
+                      onClick={(event) => {
+                        event.preventDefault();
+                        handleNavigate(item.href);
                       }}
-                      className={`block px-5 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-200 ${
+                      className={`block px-5 py-2 font-mono text-[0.68rem] font-medium uppercase tracking-[0.15em] transition-colors duration-200 ${
                         isActive ? "text-zinc-950" : "text-zinc-400 hover:text-zinc-950"
                       }`}
                     >
@@ -189,93 +167,19 @@ export default function Navbar() {
               })}
             </ul>
           </nav>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          className={`relative flex h-11 w-11 items-center justify-center rounded-full text-zinc-950 transition-all duration-500 lg:hidden ${
-            scrolled
-              ? "border border-zinc-200 bg-white hover:bg-zinc-50"
-              : "border border-transparent bg-transparent hover:bg-zinc-100"
-          }`}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span className="sr-only">Toggle menu</span>
-          <span
-            className={`absolute h-0.5 w-4 bg-current transition-transform duration-300 ${menuOpen ? "rotate-45" : "-translate-y-1.5"}`}
-          />
-          <span
-            className={`absolute h-0.5 w-4 bg-current transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`}
-          />
-          <span
-            className={`absolute h-0.5 w-4 bg-current transition-transform duration-300 ${menuOpen ? "-rotate-45" : "translate-y-1.5"}`}
-          />
-        </button>
-      </div>
-
-      <div
-        className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={() => setMenuOpen(false)}
-      />
-
-      <nav
-        ref={mobilePanelRef}
-        className="fixed right-4 top-4 z-50 h-[calc(100vh-2rem)] w-[min(20rem,calc(100vw-2rem))] rounded-4xl border border-zinc-200 bg-white p-5 shadow-[0_24px_80px_rgba(0,0,0,0.16)] lg:hidden"
-        style={{ visibility: "hidden", pointerEvents: "none" }}
-        aria-label="Mobile navigation"
-      >
-        <div className="mb-10 flex items-center justify-between border-b border-zinc-100 pb-4">
-          <span className="font-editorial text-lg font-bold italic text-zinc-950">Navigation</span>
           <button
             type="button"
-            onClick={() => setMenuOpen(false)}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 text-zinc-700"
-            aria-label="Close menu"
+            onClick={toggleLocale}
+            className="inline-flex h-10 items-center gap-2 px-3 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-zinc-500 transition-colors duration-300 hover:text-zinc-950"
+            aria-label={t("navbar.switchLanguage")}
+            title={t("navbar.switchLanguage")}
           >
-            <span className="absolute h-0.5 w-4 rotate-45 bg-current" />
-            <span className="absolute h-0.5 w-4 -rotate-45 bg-current" />
+            <GlobeIcon />
+            {locale.toUpperCase()}
           </button>
         </div>
-
-        <div className="flex flex-col gap-2">
-          {menuItems.map((item, index) => {
-            const isActive = activeSection === item.href;
-
-            return (
-              <Link
-                key={item.href}
-                ref={(element) => {
-                  mobileItemsRef.current[index] = element;
-                }}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  clickLockRef.current = true;
-                  setActiveSection(item.href);
-                  const target = document.getElementById(item.href.slice(1));
-                  target?.scrollIntoView({ behavior: "smooth" });
-                  setTimeout(() => {
-                    clickLockRef.current = false;
-                  }, 900);
-                }}
-                className={`flex items-center justify-between rounded-2xl px-4 py-3.5 transition-all duration-200 ${
-                  isActive ? "bg-zinc-950 text-white" : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                }`}
-              >
-                <span className="font-mono text-[13px] font-medium uppercase tracking-[0.08em]">{item.label}</span>
-                <span className={`font-mono text-[11px] ${isActive ? "text-zinc-300" : "text-zinc-400"}`}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </nav>
+      </div>
     </header>
   );
 }
