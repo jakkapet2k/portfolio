@@ -1,4 +1,5 @@
 import { LocaleProvider } from "@/components/providers/LocaleProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import AppShell from "@/components/AppShell";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
@@ -32,11 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <LocaleProvider>
-          <AppShell>{children}</AppShell>
-        </LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            <AppShell>{children}</AppShell>
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,13 +1,24 @@
 "use client";
 
 import gsap from "gsap";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import LoadingScreen from "./LoadingScreen";
 import Navbar from "./Navbar";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [loading]);
 
   const handleComplete = useCallback(() => {
     setLoading(false);
