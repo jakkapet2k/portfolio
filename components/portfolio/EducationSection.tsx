@@ -36,12 +36,12 @@ const EducationSection = function EducationSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="education" className="border-t border-zinc-200 bg-white px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32">
+    <section ref={sectionRef} id="education" className="border-t border-zinc-200 px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32 dark:border-zinc-800">
       <div className="mx-auto max-w-7xl">
-        <div className="education-header mb-12 flex flex-col gap-4 border-b border-zinc-200 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20">
+        <div className="education-header mb-12 flex flex-col gap-4 border-b border-zinc-200 pb-5 sm:mb-16 sm:flex-row sm:items-end sm:justify-between sm:pb-6 lg:mb-20 dark:border-zinc-700">
           <div>
-            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-400 sm:tracking-[0.3em]">{messages.education.chapter}</span>
-            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em] text-zinc-950">{messages.education.title}</h2>
+            <span className="font-mono text-[clamp(0.64rem,1.8vw,0.72rem)] uppercase tracking-[0.22em] text-zinc-400 sm:tracking-[0.3em] dark:text-zinc-500">{messages.education.chapter}</span>
+            <h2 className="font-editorial text-balance mt-2 text-[clamp(2.5rem,8vw,4.2rem)] font-bold italic tracking-[-0.03em] text-zinc-950 dark:text-zinc-50">{messages.education.title}</h2>
           </div>
         </div>
 
@@ -55,12 +55,12 @@ const EducationSection = function EducationSection() {
 
               {/* Degree & School */}
               <div>
-                <h3 className="font-editorial text-balance text-[clamp(1.55rem,3.7vw,2rem)] font-bold text-zinc-950">{edu.degree}</h3>
+                <h3 className="font-editorial text-balance text-[clamp(1.55rem,3.7vw,2rem)] font-bold text-zinc-950 dark:text-zinc-50">{edu.degree}</h3>
                 <p className="mt-1 text-[clamp(0.92rem,1.9vw,1rem)] italic text-zinc-400">{edu.school}</p>
               </div>
 
               {/* Detail */}
-              <p className="text-pretty text-[clamp(0.98rem,2.05vw,1.05rem)] leading-[1.8] text-zinc-600 sm:leading-[1.85]">{edu.detail}</p>
+              <p className="text-pretty text-[clamp(0.98rem,2.05vw,1.05rem)] leading-[1.8] text-zinc-600 sm:leading-[1.85] dark:text-zinc-400">{edu.detail}</p>
             </div>
           ))}
         </div>
